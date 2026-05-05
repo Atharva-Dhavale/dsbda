@@ -1,0 +1,76 @@
+1) Bubble Sort in Scala
+object BubbleSort {
+  def main(args: Array[String]): Unit = {
+
+    println("Enter number of elements:")
+    val n = scala.io.StdIn.readInt()
+
+    val arr = new Array[Int](n)
+
+    println("Enter elements:")
+    for (i <- 0 until n) {
+      arr(i) = scala.io.StdIn.readInt()
+    }
+
+    // Bubble Sort Logic
+    for (i <- 0 until n - 1) {
+      for (j <- 0 until n - i - 1) {
+        if (arr(j) > arr(j + 1)) {
+          val temp = arr(j)
+          arr(j) = arr(j + 1)
+          arr(j + 1) = temp
+        }
+      }
+    }
+
+    println("Sorted array:")
+    arr.foreach(x => print(x + " "))
+  }
+}
+
+
+
+
+2) Factorial in Scala
+object Factorial {
+  def main(args: Array[String]): Unit = {
+
+    println("Enter a number:")
+    val n = scala.io.StdIn.readInt()
+
+    var fact = 1
+
+    for (i <- 1 to n) {
+      fact = fact * i
+    }
+
+    println("Factorial = " + fact)
+  }
+}
+
+
+
+
+3) Word Count in Scala
+object WordCount {
+  def main(args: Array[String]): Unit = {
+
+    println("Enter a sentence:")
+    val input = scala.io.StdIn.readLine()
+
+    val words = input.split(" ")
+
+    val wordCount = words.groupBy(word => word)
+                         .mapValues(_.length)
+
+    println("Word Count:")
+    wordCount.foreach { case (word, count) =>
+      println(word + " : " + count)
+    }
+  }
+}
+
+
+
+scalac BubbleSort.scala
+scala BubbleSort
